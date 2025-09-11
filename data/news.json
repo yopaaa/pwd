@@ -1,0 +1,56 @@
+[
+  {
+    "img": "cabe.jpeg",
+    "title": "Harga Cabe Merah Naik 20%",
+    "description": "Harga cabe merah di pasar tradisional naik akibat pasokan berkurang karena cuaca ekstrem.",
+    "icon": "🌶️"
+  },
+  {
+    "img": "bawang_merah.jpg",
+    "title": "Produksi Bawang Merah Meningkat",
+    "description": "Petani bawang di Brebes melaporkan panen melimpah tahun ini berkat cuaca yang bersahabat.",
+    "icon": "🧅"
+  },
+  {
+    "img": "sawit.jpg",
+    "title": "Ekspor Minyak Sawit Menguat",
+    "description": "Ekspor minyak sawit Indonesia naik 15% didorong permintaan dari India dan Tiongkok.",
+    "icon": "🌴"
+  },
+  {
+    "img": "kelapa.jpg",
+    "title": "Industri Kelapa Olahan Tumbuh",
+    "description": "Produk turunan kelapa seperti santan dan minyak kelapa makin diminati di pasar global.",
+    "icon": "🥥"
+  },
+  {
+    "img": "beras.jpg",
+    "title": "Cadangan Beras Nasional Aman",
+    "description": "Bulog memastikan stok beras cukup untuk memenuhi kebutuhan hingga akhir tahun.",
+    "icon": "🍚"
+  },
+  {
+    "img": "jagung.jpg",
+    "title": "Harga Jagung Stabil",
+    "description": "Harga jagung di tingkat petani relatif stabil meski terjadi peningkatan permintaan pakan ternak.",
+    "icon": "🌽"
+  },
+  {
+    "img": "kopi.jpg",
+    "title": "Ekspor Kopi Sumatra Naik",
+    "description": "Kopi arabika Sumatra mencatat peningkatan ekspor berkat permintaan tinggi dari Eropa.",
+    "icon": "☕"
+  },
+  {
+    "img": "kakao.jpg",
+    "title": "Produksi Kakao Turun",
+    "description": "Produksi kakao di Sulawesi menurun akibat serangan hama penggerek buah kakao.",
+    "icon": "🍫"
+  },
+  {
+    "img": "karet.jpg",
+    "title": "Harga Karet Menguat",
+    "description": "Permintaan karet alam meningkat di pasar internasional, mendongkrak harga di tingkat petani.",
+    "icon": "🌳"
+  }
+]
