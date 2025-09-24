@@ -106,6 +106,15 @@
             </table>
         </section>
 
+        <script>
+            // fetch data from https://api-panelhargav2.badanpangan.go.id/api/cms/komoditas-pusat
+            fetch("https://api-panelhargav2.badanpangan.go.id/api/cms/komoditas-pusat")
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    
+                  });
+        </script>
 
     </div>
 
