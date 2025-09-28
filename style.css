@@ -226,8 +226,119 @@ footer {
 .footer-content-list a {
   color: white;
   text-decoration: none;
+  text-align: start;
 }
 
 .footer-content-list a:hover {
   text-decoration: underline;
+}
+
+
+.price-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.price-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* box-sizing: border-box;
+  transition: all 0.3s ease; */
+
+
+.price-card:hover {
+  transform: scale(1.05);
+  transform: translateY(-5px);
+}
+
+.price-card-header {
+  position: relative;
+  height: 120px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.price-card-body {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.price-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.price-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.price-unit {
+  font-weight: 500;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.price-info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.price-gap {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.price-gap.up {
+  color: green;
+}
+
+.price-gap.down {
+  color: red;
+}
+
+.price-gap-icon {
+  margin-left: 5px;
+  font-weight: 900;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.prices-nav {
+  display: flex;
+  padding: 60px;
+  justify-content: space-between;
+}
+
+.prices-nav button {
+  background-color: #1b1b1b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
