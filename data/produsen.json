@@ -118,5 +118,13 @@
         "harga_today": 39000,
         "harga_yesterday": 38800,
         "satuan": "kg"
+    },
+    {
+        "id": 15,
+        "komoditas": "Ayam Broiler",
+        "wilayah": "bangka Belitung",
+        "harga_today": 37000,
+        "harga_yesterday": 38800,
+        "satuan": "kg"
     }
 ]

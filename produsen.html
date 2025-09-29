@@ -34,117 +34,53 @@
 
     <div class="container">
         <h1 id="chartTitle">Grafik Harga Komoditas</h1>
-        <div class="about-container" id="about" style="padding: 20px;">
-            <div class="about-image" style="height: 400px;">
-                <canvas id="grafikCanvas"></canvas>
 
-            </div>
-            <div class="about-description" id="chartDescription">
-                <h2>Tentang NeoPrice</h2>
-                <p id="chartDescription">NeoPrice menyediakan indeks harga komoditas terkini dan tren pasar untuk
-                    membantu Anda mengambil
-                    keputusan yang terinformasi.</p>
-            </div>
+        <section>
+            <table border="1" cellspacing="0" cellpadding="6">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Komoditas</th>
+                        <th>Wilayah</th>
+                        <th>Harga Hari Ini</th>
+                        <th>Harga Kemarin</th>
+                        <th>Satuan</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Data dari JSON akan ditambahkan di sini -->
+                </tbody>
+            </table>
 
             <script>
-                let selectedData = null
-                const urlParams = new URLSearchParams(window.location.search);
-                const id = urlParams.get('id');
+                fetch("/data/produsen.json")
+                    .then(res => res.json())
+                    .then(data => {
+                        const tbody = document.getElementById("table-body");
+                        tbody.innerHTML = ""; // kosongkan dulu
 
-                function showDetails(data) {
-                    document.getElementById('chartTitle').innerHTML = `Grafik Harga ${data.name}`;
-                    document.getElementById('chartDescription').innerHTML = `
-<h3>Detail Komoditas ${data.name}</h3>
-<div style="display: flex; flex-direction: row; gap: 10px;">
-<ul>
-  <li>Nama: ${data.name}</li>
-  <li>Satuan: ${data.satuan}</li>
-  <li>Harga Hari Ini: Rp ${data.today}</li>
-  <li>Harga Kemarin: Rp ${data.yesterday}</li>
-  <li>Tanggal Harga Kemarin: ${data.yesterday_date}</li>
-  <li>Selisih (Gap): ${data.gap}</li>
-  <li>Persentase Selisih: ${data.gap_percentage}</li>
-  <li>Arah Perubahan: ${data.gap_change}</li>
-  <li>Warna Perubahan: ${data.gap_color}</li>
-</ul>
+                        data.forEach((item, index) => {
+                            const tr = document.createElement("tr");
 
-<div class="detail-card" style="max-width:400px;background:#fff;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.08);overflow:hidden;font-family:sans-serif">
-  <div style="background:#f9fafb;padding:12px;display:flex;align-items:center;gap:12px">
-    <img src="${data.background}" alt="Ikon ${data.name}" style="width:48px;height:48px;object-fit:contain" />
-    <h2 style="margin:0;font-size:18px">${data.name}</h2>
-  </div>
-  <div style="padding:16px">
-    <p style="margin:0 0 8px 0;font-size:14px;color:#555">Satuan: ${data.satuan}</p>
-    <div style="display:flex;align-items:center;gap:12px">
-      <span style="font-size:20px;font-weight:700">Rp ${data.today}</span>
-      <span style="font-size:14px;color:${data.gap_color}">▲ ${data.gap} (${data.gap_percentage}%)</span>
-    </div>
-    <p style="margin:8px 0 0 0;font-size:13px;color:#777">Kemarin (${data.yesterday_date}): Rp ${data.yesterday}</p>
-  </div>
-</div>
-</div>
+                            tr.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${item.komoditas}</td>
+          <td>${item.wilayah}</td>
+          <td>${item.harga_today}</td>
+          <td>${item.harga_yesterday}</td>
+          <td>${item.satuan}</td>
+        `;
 
-
-                    `;
-                    showChart({
-                        label: data.name,
-                        yesterday: data.yesterday,
-                        today: data.today,
-                        labels: Array.from({ length: 50 }, (_, i) => `Minggu ${i + 1}`),
-                    });
-                }
-
-                function generateChartData(today, yesterday, length = 50) {
-                    const start = Math.floor(today * 0.3); // mulai dari 30% harga today
-                    const arr = [];
-                    const step = (today - start) / (length - 1); // tren menuju today
-                    let current = start;
-
-                    for (let i = 0; i < length; i++) {
-                        const noise = Math.floor((Math.random() - 0.5) * step * 2);
-                        const value = Math.round(current + noise);
-                        arr.push(value);
-
-                        current = start + step * (i + 1);
-                    }
-
-                    arr[0] = start;
-                    arr[length - 2] = yesterday; // posisi ke-49 = yesterday
-                    arr[length - 1] = today;     // posisi ke-50 = today
-
-                    return arr;
-                }
-
-                function showChart(params) {
-                    let data = generateChartData(params.yesterday, params.today, 50);
-                    const ctx = document.getElementById('grafikCanvas').getContext('2d');
-                    const grafikChart = new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: params.labels,
-                            datasets: [{
-                                label: params.label,
-                                data: data,
-                                borderColor: "blue",
-                                backgroundColor: "rgba(0, 0, 255, 0.2)",
-                                fill: true,
-                                tension: 0.3 // bikin garis agak melengkung
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
-
-                }
-
+                            tbody.appendChild(tr);
+                        });
+                    })
+                    .catch(err => console.error("Gagal ambil data:", err));
             </script>
-        </div>
+
+
+
+        </section>
+
 
         <section id="prices">
             <h1>Harga Pangan Informasi (Level Produsen)</h1>
@@ -195,9 +131,6 @@
 
                         const result = await response.json();
 
-                        selectedData = result.data.find(d => d.id === parseInt(id));
-                        showDetails(selectedData);
-
 
                         if (result.status === "success" && Array.isArray(result.data)) {
                             const container = document.getElementById("cards-container");
@@ -219,52 +152,6 @@
 
                 loadData();
             </script>
-
-        </section>
-
-        <section>
-            <table border="1" cellspacing="0" cellpadding="6">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Komoditas</th>
-                        <th>Wilayah</th>
-                        <th>Harga Hari Ini</th>
-                        <th>Harga Kemarin</th>
-                        <th>Satuan</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    <!-- Data dari JSON akan ditambahkan di sini -->
-                </tbody>
-            </table>
-
-            <script>
-                fetch("/data/produsen.json")
-                    .then(res => res.json())
-                    .then(data => {
-                        const tbody = document.getElementById("table-body");
-                        tbody.innerHTML = ""; // kosongkan dulu
-
-                        data.forEach((item, index) => {
-                            const tr = document.createElement("tr");
-
-                            tr.innerHTML = `
-          <td>${index + 1}</td>
-          <td>${item.komoditas}</td>
-          <td>${item.wilayah}</td>
-          <td>${item.harga_today}</td>
-          <td>${item.harga_yesterday}</td>
-          <td>${item.satuan}</td>
-        `;
-
-                            tbody.appendChild(tr);
-                        });
-                    })
-                    .catch(err => console.error("Gagal ambil data:", err));
-            </script>
-
-
 
         </section>
     </div>
