@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "komoditas": "Beras",
+        "wilayah": "Jawa Barat",
+        "harga_today": 6855,
+        "harga_yesterday": 6830,
+        "satuan": "kg"
+    },
+    {
+        "id": 2,
+        "komoditas": "Jagung",
+        "wilayah": "Jawa Timur",
+        "harga_today": 5200,
+        "harga_yesterday": 5180,
+        "satuan": "kg"
+    },
+    {
+        "id": 3,
+        "komoditas": "Kopi Robusta",
+        "wilayah": "Sumatera Selatan",
+        "harga_today": 11800,
+        "harga_yesterday": 11750,
+        "satuan": "kg"
+    },
+    {
+        "id": 4,
+        "komoditas": "Kopi Arabika",
+        "wilayah": "Aceh",
+        "harga_today": 13400,
+        "harga_yesterday": 13350,
+        "satuan": "kg"
+    },
+    {
+        "id": 5,
+        "komoditas": "Kakao",
+        "wilayah": "Sulawesi Tengah",
+        "harga_today": 15050,
+        "harga_yesterday": 15000,
+        "satuan": "kg"
+    },
+    {
+        "id": 6,
+        "komoditas": "Karet",
+        "wilayah": "Kalimantan Barat",
+        "harga_today": 9100,
+        "harga_yesterday": 9050,
+        "satuan": "kg"
+    },
+    {
+        "id": 7,
+        "komoditas": "Kelapa Sawit",
+        "wilayah": "Riau",
+        "harga_today": 8250,
+        "harga_yesterday": 8200,
+        "satuan": "kg"
+    },
+    {
+        "id": 8,
+        "komoditas": "Cabai Merah",
+        "wilayah": "Sumatera Barat",
+        "harga_today": 17600,
+        "harga_yesterday": 17500,
+        "satuan": "kg"
+    },
+    {
+        "id": 9,
+        "komoditas": "Cabai Rawit",
+        "wilayah": "Jawa Tengah",
+        "harga_today": 18500,
+        "harga_yesterday": 18400,
+        "satuan": "kg"
+    },
+    {
+        "id": 10,
+        "komoditas": "Bawang Merah",
+        "wilayah": "Bima, NTB",
+        "harga_today": 8700,
+        "harga_yesterday": 8650,
+        "satuan": "kg"
+    },
+    {
+        "id": 11,
+        "komoditas": "Bawang Putih Lokal",
+        "wilayah": "Temanggung, Jawa Tengah",
+        "harga_today": 15500,
+        "harga_yesterday": 15450,
+        "satuan": "kg"
+    },
+    {
+        "id": 12,
+        "komoditas": "Tebu",
+        "wilayah": "Jawa Timur",
+        "harga_today": 4820,
+        "harga_yesterday": 4800,
+        "satuan": "kg"
+    },
+    {
+        "id": 13,
+        "komoditas": "Kelapa",
+        "wilayah": "Sulawesi Utara",
+        "harga_today": 5200,
+        "harga_yesterday": 5180,
+        "satuan": "butir"
+    },
+    {
+        "id": 14,
+        "komoditas": "Ikan Laut Segar",
+        "wilayah": "Maluku",
+        "harga_today": 32000,
+        "harga_yesterday": 31800,
+        "satuan": "kg"
+    },
+    {
+        "id": 15,
+        "komoditas": "Ayam Broiler",
+        "wilayah": "Jawa Barat",
+        "harga_today": 39000,
+        "harga_yesterday": 38800,
+        "satuan": "kg"
+    }
+]

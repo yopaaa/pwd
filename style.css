@@ -253,10 +253,6 @@ footer {
   box-sizing: border-box;
 }
 
-/* box-sizing: border-box;
-  transition: all 0.3s ease; */
-
-
 .price-card:hover {
   transform: scale(1.05);
   transform: translateY(-5px);
@@ -332,7 +328,8 @@ footer {
   justify-content: space-between;
 }
 
-.prices-nav button {
+.prices-nav a {
+  text-decoration: none;
   background-color: #1b1b1b;
   color: white;
   border: none;
@@ -341,4 +338,9 @@ footer {
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease;
+}
+
+.normalAnchor {
+  color: inherit;
+  text-decoration: none;
 }
