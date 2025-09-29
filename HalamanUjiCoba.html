@@ -17,50 +17,155 @@
 
 <body>
     <header>
-        <h1>Welcome to NeoPrice</h1>
+        <h1>Selamat Datang di NeoPrice</h1>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#news">Berita</a></li>
+                <li><a href="#prices">Harga</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#services">Visi/Misi</a></li>
+                <li><a href="#contact">Kontak</a></li>
+                <li><a href="index.html">Beranda</a></li>
             </ul>
         </nav>
     </header>
-    <p align="center" style="    display: flex;    justify-content: space-between;  align-items: center;  padding: 0 20px;">
-        <button><a href="index.html">Beranda</a></button>
-        <button><a href="HalamanUjiCoba.html">Next</a></button>
-    </p>
-    <div class="footer-container-right">
-        <span>
-            <h3>Halaman</h3>
-            <div class="footer-content-list">
 
-                <a href="/#news">News</a>
-                <a href="#services">Services</a>
-                <a href="#">Contact</a>
+    <div class="cover">
+        <img src="/assets/komoditas_banner.jpg" alt="Cover Image"
+            style="width: 100%; height:300px; object-fit: cover; display: block; margin: 0 auto;">
+    </div>
+
+    <div class="container">
+
+        
+        <div class="about-container" id="about">
+            <div class="about-image">
+                <img src="/assets/logo.jpeg" alt="About NeoPrice">
             </div>
+            <div class="about-description">
+                <h2>Tentang NeoPrice</h2>
+                <p>NeoPrice menyediakan indeks harga komoditas terkini dan tren pasar untuk membantu Anda mengambil
+                    keputusan yang terinformasi.</p>
+            </div>
+        </div>
+
+
+        <div class="about-container" id="services">
+            <div class="about-description">
+                <p>
+                <h2>Visi</h2>
+                Menjadi sumber informasi harga komoditas yang akurat, transparan, dan mudah diakses untuk mendukung
+                keputusan masyarakat, pelaku usaha, dan pemerintah dalam menciptakan pasar pangan yang sehat dan
+                berkelanjutan.
+
+                <h2>Misi</h2>
+                <ol>
+                    <li>Menyediakan data harga komoditas terkini secara cepat, jelas, dan terpercaya.</li>
+                    <li>Memudahkan pengguna dalam membandingkan harga komoditas antar wilayah dan waktu.</li>
+                    <li>Mendukung transparansi pasar dengan akses data yang terbuka bagi semua pihak.</li>
+                    <li>Mengembangkan fitur analisis sederhana untuk membantu pelaku usaha mengambil keputusan.</li>
+                    <li>Berkontribusi dalam menjaga stabilitas harga pangan melalui penyediaan informasi yang tepat.
+                    </li>
+                </ol>
+
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="/assets/logo.jpeg" alt="About NeoPrice">
+            </div>
+        </div>
+    </div>
+
+    <div class="contact" id="contact">
+        <span>
+            <a href="">
+                <img src="/assets/social-media/facebook.png" alt="" width="80px" height="80px">
+            </a>
         </span>
 
         <span>
-            <h3>News</h3>
-            <div class="footer-content-list">
-                <a href="/#news">Latest News</a>
-                <a href="/">Market Updates</a>
-                <a href="/">Industry Insights</a>
-            </div>
+            <a href="">
+                <img src="/assets/social-media/instagram.png" alt="" width="80px" height="80px">
+            </a>
         </span>
-
         <span>
-            <h3>Contact Us</h3>
-            <div class="footer-content-list">
-                <a href="mailto:support@neoprice.com">Email: support@neoprice.com</a>
-                <a href="tel:08123456789">Phone: 08123456789</a>
-            </div>
+            <a href="">
+                <img src="/assets/social-media/gmail.png" alt="" width="80px" height="80px">
+            </a>
+        </span>
+        <span>
+            <a href="">
+                <img src="/assets/social-media/tiktok.png" alt="" width="80px" height="80px">
+            </a>
         </span>
     </div>
-    </div>
-    <p>&copy; 2025 NeoPrice. All rights reserved.</p>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-container-left">
+                <img src="/assets/logo.jpeg" alt="Logo" style="width: 100px;">
+                <h3>Tentang NeoPrice</h3>
+                <p>NeoPrice menyediakan indeks harga komoditas terkini dan tren pasar untuk membantu Anda mengambil
+                    keputusan yang terinformasi.</p>
+            </div>
+
+            <div class="footer-container-right">
+                <span>
+                    <h3>Halaman</h3>
+                    <div class="footer-content-list">
+                        <a href="#">Home</a>
+                        <a href="#news">Berita</a>
+                        <a href="#prices">Harga</a>
+                        <a href="#about">Tentang</a>
+                        <a href="#services">Visi/Misi</a>
+                        <a href="#">Kontak</a>
+                    </div>
+                </span>
+
+                <span>
+                    <h3>Berita</h3>
+                    <div class="footer-content-list footer-news-list"> </div>
+
+                    <script>
+                        async function loadArticles() {
+                            const container = document.querySelector('.footer-news-list');
+                            container.innerHTML = "";
+
+                            try {
+                                const response = await fetch("https://api-panelhargav2.badanpangan.go.id/api/cms/articles?type=1&page=1");
+                                const result = await response.json();
+
+                                if (result.status === "success" && result.data.length > 0) {
+                                    result.data.slice(0, 4).forEach(article => {
+                                        const sourceUrlMatch = article.description.match(/Sumber\s*:\s*(https?:\/\/[^\s<]+)/);
+                                        const sourceUrl = sourceUrlMatch ? sourceUrlMatch[1] : "#";
+                                        container.innerHTML += `<a href="${sourceUrl}" target="_blank">${article.title}</a>`;
+                                    });
+                                } else {
+                                    container.innerHTML = "<p>Tidak ada berita ditemukan.</p>";
+                                }
+
+                            } catch (error) {
+                                container.innerHTML = "<p>Gagal memuat berita. Silakan coba lagi nanti.</p>";
+                                console.error("Fetch error:", error);
+                            }
+                        }
+
+                        loadArticles();
+                    </script>
+                </span>
+
+                <span>
+                    <h3>Kontak Kami</h3>
+                    <div class="footer-content-list">
+                        <a href="mailto:support@neoprice.com">Email: support@neoprice.com</a>
+                        <a href="tel:08123456789">Telepon: 08123456789</a>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <p>&copy; 2025 NeoPrice. All rights reserved.</p>
     </footer>
 </body>
 
